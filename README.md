@@ -12,6 +12,7 @@ However for browser these things become opposite i.e. for a browser a POST reque
 **What json is?**<br>
 Basically JSON is a set of key value pairs like a dictionary. However JSON is not a dictionary, it is a long string. **JSON always uses double quotes to represent the data**.
 
+**jsonify() method:**<br>
 To retrieve the requested data there should be some sort of a way to convert the python list to some kind of string which we could send back to the internet.<br>
 Fortunately, flask helps us out here. It has a method called `jsonify` which takes in **dictionary** and sends back JSON.<br>
 ```python
@@ -40,11 +41,13 @@ return jsonify({'stores': stores})
 
 ***This method always return a dictionary not a list.***
 
+*If we're using <b>flask restful<b> then we just have to return dictionary without needing the jsonify method i.e. flask restful automatically converts dictionary into JSON, isn't that cool.*
+
 http://127.0.0.1:5000/store<br>
 Lets break this down:<br>
 - *127.0.0.1* is our **Local Computer**.<br>
 - *5000* is the **PORT** that we are running on.<br>
-- */store* is the **Endpoint we're accessing**.
+- */store* is the **Endpoint** we're accessing.
 
 **APIs**: The APIs works with resources and resource should be a class.
 
@@ -62,8 +65,6 @@ Now very common question that comes to mind is:<br>
 **Why is PUT called an idempotent request?**<br>
 PUT is known as an idempotent request, because even if the thing that you are doing with this request has already happened, you can still do the request again & it won't fail.<br>
 
-If we're using flask restful then we just have to return dictionary without needing the jsonify method i.e. flask restful automatically converts dictionary into JSON, isn't that cool.
-
 **What's the most popular HTTP status code?**<br>
 !(404) i.e. 200
 
@@ -73,9 +74,11 @@ If we're using flask restful then we just have to return dictionary without need
 - **201 CREATED** - it shows when the object has been created & added to the database
 - **202** - it is similar to 201 which is accepted when you're delaying the creation of an object, it may fail to actually add the object to the database but that's out of client's control
 - **400 BAD REQUEST** - it is shown when POST request fails i.e. the data given by user already exists. This is known as a Bad request & its not our application's fault, its client's fault because they made a request with an invalid data(its invalid because its already in the server).
+- **401 UNAUTHORIZED** - it is shown when GET request fails i.e. the client is not authorized to send the request to the server
 
-Using the right status codes is very important as it is a very quick way for client's like mobile applications or web applications to check whether things gone right or not.
+*Using the right status codes is very important as it is a very quick way for client's like mobile applications or web applications to check whether things gone right or not.*
 
+**get_json() method:**<br>
 Whenever anyone(like Postman) makes a request, that request is going to have a JSON payload & body attached to it.<br>
 If the request does not attach a JSON payload or if proper Content-type header(i.e. application/json) is not set then `data = request.get_json()` will throw an error.
 
@@ -97,4 +100,4 @@ Here we can call next again we if we want second item & again if third item and 
 Also if the next function doesn't find any items then it will give an error, so to avoid that we can write -<br>
 `next(filter(lambda x: x['name'] == name, items), None)` which will simply return None if no items are found.
 
-**JWT** stands for **JSON Web Token**
+**JWT** stands for **JSON Web Token**. It is used to encrypt data.
