@@ -73,8 +73,9 @@ PUT is known as an idempotent request, because even if the thing that you are do
 - **404 NOT FOUND** - it shows when the server does not find what the client requested
 - **201 CREATED** - it shows when the object has been created & added to the database
 - **202** - it is similar to 201 which is accepted when you're delaying the creation of an object, it may fail to actually add the object to the database but that's out of client's control
-- **400 BAD REQUEST** - it is shown when POST request fails i.e. the data given by user already exists. This is known as a Bad request & its not our application's fault, its client's fault because they made a request with an invalid data(its invalid because its already in the server).
+- **400 BAD REQUEST** - it is shown when POST request fails i.e. the data given by user already exists. This is known as a Bad request & its not our application's fault, its client's fault because they made a request with an invalid data(its invalid because its already in the server)
 - **401 UNAUTHORIZED** - it is shown when GET request fails i.e. the client is not authorized to send the request to the server
+- **500 INTERNAL SERVER ERROR** - it occurs when something wents wrong on the server side i.e. its not client's fault
 
 *Using the right status codes is very important as it is a very quick way for client's like mobile applications or web applications to check whether things gone right or not.*
 
