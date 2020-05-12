@@ -41,7 +41,7 @@ return jsonify({'stores': stores})
 
 ***This method always return a dictionary not a list.***
 
-*If we're using <b>flask restful<b> then we just have to return dictionary without needing the jsonify method i.e. flask restful automatically converts dictionary into JSON, isn't that cool.*
+*If we're using <b>flask restful</b> then we just have to return dictionary without needing the jsonify method i.e. flask restful automatically converts dictionary into JSON, isn't that cool.*
 
 http://127.0.0.1:5000/store<br>
 Lets break this down:<br>
