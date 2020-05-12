@@ -102,3 +102,12 @@ Also if the next function doesn't find any items then it will give an error, so 
 `next(filter(lambda x: x['name'] == name, items), None)` which will simply return None if no items are found.
 
 **JWT** stands for **JSON Web Token**. It is used to encrypt data.
+
+**Resource**: Esentially a resource is what an API thinks of.
+**What is a model & a resource?**<br>
+A Model is internal representation of an entity whereas the resource is an external representation of the entity.<br>
+Our API clients like a website or a mobile app think they are interacting with resources & when our API responds, it responds with resources. However when we deal internally in our code with a user, we are actually using a model.<br>
+So a model is a helper that allows us to interact with the user or give more flexibility to our program without polluting the resource which is what the client interact with.
+
+**SSL(Secure Sockets Layer)**:
+SSL allows communication between the client and the server to be encrypted.
